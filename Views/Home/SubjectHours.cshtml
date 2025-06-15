@@ -1,0 +1,19 @@
+﻿@model DynamicTimeTable.Models.SubjectHours
+
+<form asp-action="SubjectHours" method="post">
+    <input type="hidden" asp-for="TotalHours" />
+
+
+    <p>Total Weekly Hours: @Model.TotalHours</p>
+    @for (int i = 0; i < Model.Subjects.Count; i++)
+    {
+        <div>
+            <label>Subject Name:</label>
+            <input name="Subjects[@i].SubjectName" required />
+            <label>Hours:</label>
+            <input name="Subjects[@i].Hours" type="number" min="1" required />
+        </div>
+    }
+    <br/>
+    <button type="submit">Generate Time Table</button>
+</form>

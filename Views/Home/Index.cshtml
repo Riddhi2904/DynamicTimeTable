@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model DynamicTimeTable.Models.inputHour
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Index" method="post">
+    <label>No of Working Days:</label>
+    <input asp-for="WorkingDays" />
+    <span asp-validation-for="WorkingDays"></span>
+    <br /> <br />
+    <label>No of Subjects per day:</label>
+    <input asp-for="SubjectsPerDay" />
+    <span asp-validation-for="SubjectsPerDay"></span>
+    <br /> <br />
+    <label>Total Subjects:</label>
+    <input asp-for="TotalSubjects" />
+    <span asp-validation-for="TotalSubjects"></span>
+    <br /> <br />
+    <p>Total Hours (auto): @Model?.TotalHours</p>
+    <button type="submit">Submit</button>
+</form>
